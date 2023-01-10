@@ -1,6 +1,8 @@
 package by.ageenko.task_3.sortService.impl;
 
-import by.ageenko.task_3.array.Array;
+import by.ageenko.task_3.entity.CustomArray;
+import by.ageenko.task_3.reader.impl.ArrayReaderImpl;
+import by.ageenko.task_3.service.sort.impl.SortArraysServiceImpl;
 import org.apache.logging.log4j.Level;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
@@ -12,39 +14,48 @@ class SortArraysServiceImplTest {
     static Logger logger = LogManager.getLogger();
     @Test
     void bubbleSort() {
-        Array array = new Array();
-        int[] array1 = {4, 5, 6, -1, 23, 5};
-        array.setArray(array1);
+        ArrayReaderImpl inputService = new ArrayReaderImpl();
+        CustomArray customArray = inputService.reader("data//EmptyArray.txt");
         SortArraysServiceImpl sortArraysService = new SortArraysServiceImpl();
-        sortArraysService.bubbleSort(array);
-        int[] actual = array.getArray();
-        int[] expected = {-1, 4, 5, 5, 6, 23};
+        sortArraysService.bubbleSort(customArray);
+        int[] actual = customArray.getArray();
+        int[] expected = {0};
         assertArrayEquals(expected, actual);
         logger.log(Level.INFO, "sortBubble = {}", actual);
     }
 
     @Test
     void insertionSort() {
-        Array array = new Array();
-        int[] array1 = {4, 5, 6, -1, 23, 5};
-        array.setArray(array1);
+        ArrayReaderImpl inputService = new ArrayReaderImpl();
+        CustomArray customArray = inputService.reader("data//IncorrectArray.txt");
         SortArraysServiceImpl sortArraysService = new SortArraysServiceImpl();
-        sortArraysService.insertionSort(array);
-        int[] actual = array.getArray();
-        int[] expected = {-1, 4, 5, 5, 6, 23};
+        sortArraysService.insertionSort(customArray);
+        int[] actual = customArray.getArray();
+        int[] expected = {-1, 0, 0, 4, 23, 43};
         assertArrayEquals(expected, actual);
         logger.log(Level.INFO, "insertionSort = {}", actual);
     }
 
     @Test
     void selectionSort() {
-        Array array = new Array();
-        int[] array1 = {4, 5, 6, -1, 23, 5};
-        array.setArray(array1);
+        ArrayReaderImpl inputService = new ArrayReaderImpl();
+        CustomArray customArray = inputService.reader("data//CorrectArray.txt");
         SortArraysServiceImpl sortArraysService = new SortArraysServiceImpl();
-        sortArraysService.selectionSort(array);
-        int[] actual = array.getArray();
-        int[] expected = {-1, 4, 5, 5, 6, 23};
+        sortArraysService.selectionSort(customArray);
+        int[] actual = customArray.getArray();
+        int[] expected = {2, 4, 5, 6, 43};
+        assertArrayEquals(expected, actual);
+        logger.log(Level.INFO, "selectionSort = {}", actual);
+    }
+
+    @Test
+    void streamSort(){
+        ArrayReaderImpl inputService = new ArrayReaderImpl();
+        CustomArray customArray = inputService.reader("data//CorrectArray.txt");
+        SortArraysServiceImpl sortArraysService = new SortArraysServiceImpl();
+        sortArraysService.streamSort(customArray);
+        int[] actual = customArray.getArray();
+        int[] expected = {2, 4, 5, 6, 43};
         assertArrayEquals(expected, actual);
         logger.log(Level.INFO, "selectionSort = {}", actual);
     }

@@ -1,7 +1,8 @@
 package by.ageenko.task_3.service.impl;
 
-import by.ageenko.task_3.array.Array;
-import by.ageenko.task_3.inputService.impl.InputServiceImpl;
+import by.ageenko.task_3.entity.CustomArray;
+import by.ageenko.task_3.reader.impl.ArrayReaderImpl;
+import by.ageenko.task_3.service.calculation.impl.ArrayCalculationServiceImpl;
 import org.apache.logging.log4j.Level;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
@@ -13,16 +14,15 @@ import java.util.OptionalInt;
 
 import static org.junit.jupiter.api.Assertions.*;
 
-class ArrayCalculationServiceImplTest {
+class CustomArrayCalculationServiceImplTest {
     static Logger logger = LogManager.getLogger();
 
     @Test
     void min() {
-        Array array = new Array();
-        InputServiceImpl inputService = new InputServiceImpl();
-        inputService.input(array, "D:/programming/Task3_Arrays/data/array.txt");
+        ArrayReaderImpl inputService = new ArrayReaderImpl();
+        CustomArray customArray = inputService.reader("data//IncorrectArray.txt");
         ArrayCalculationServiceImpl arrayCalculationService = new ArrayCalculationServiceImpl();
-        int actual = arrayCalculationService.min(array);
+        int actual = arrayCalculationService.min(customArray);
         int expected = -1;
         assertEquals(expected, actual);
         logger.log(Level.INFO, "min = {}", actual);
@@ -30,11 +30,10 @@ class ArrayCalculationServiceImplTest {
 
     @Test
     void max() {
-        Array array = new Array();
-        InputServiceImpl inputService = new InputServiceImpl();
-        inputService.input(array, "D:/programming/Task3_Arrays/data/array.txt");
+        ArrayReaderImpl inputService = new ArrayReaderImpl();
+        CustomArray customArray = inputService.reader("data//IncorrectArray.txt");
         ArrayCalculationServiceImpl arrayCalculationService = new ArrayCalculationServiceImpl();
-        int actual = arrayCalculationService.max(array);
+        int actual = arrayCalculationService.max(customArray);
         int expected = 43;
         assertEquals(expected, actual);
         logger.log(Level.INFO, "max = {}", actual);
@@ -42,11 +41,10 @@ class ArrayCalculationServiceImplTest {
 
     @Test
     void average() {
-        Array array = new Array();
-        InputServiceImpl inputService = new InputServiceImpl();
-        inputService.input(array, "D:/programming/Task3_Arrays/data/array.txt");
+        ArrayReaderImpl inputService = new ArrayReaderImpl();
+        CustomArray customArray = inputService.reader("data//IncorrectArray.txt");
         ArrayCalculationServiceImpl arrayCalculationService = new ArrayCalculationServiceImpl();
-        double actual = arrayCalculationService.average(array);
+        double actual = arrayCalculationService.average(customArray);
         double expected = 6.83;
         assertEquals(expected, actual);
         logger.log(Level.INFO, "average = {}", actual);
@@ -54,11 +52,11 @@ class ArrayCalculationServiceImplTest {
 
     @Test
     void sum() {
-        Array array = new Array();
-        InputServiceImpl inputService = new InputServiceImpl();
-        inputService.input(array, "D:/programming/Task3_Arrays/data/array.txt");
+
+        ArrayReaderImpl inputService = new ArrayReaderImpl();
+        CustomArray customArray = inputService.reader("data//IncorrectArray.txt");
         ArrayCalculationServiceImpl arrayCalculationService = new ArrayCalculationServiceImpl();
-        int actual = arrayCalculationService.sum(array);
+        int actual = arrayCalculationService.sum(customArray);
         int expected = 75;
         assertEquals(expected, actual);
         logger.log(Level.INFO, "sum = {}", actual);
@@ -66,11 +64,10 @@ class ArrayCalculationServiceImplTest {
 
     @Test
     void negativeAmount() {
-        Array array = new Array();
-        InputServiceImpl inputService = new InputServiceImpl();
-        inputService.input(array, "D:/programming/Task3_Arrays/data/array.txt");
+        ArrayReaderImpl inputService = new ArrayReaderImpl();
+        CustomArray customArray = inputService.reader("data//IncorrectArray.txt");
         ArrayCalculationServiceImpl arrayCalculationService = new ArrayCalculationServiceImpl();
-        int actual = arrayCalculationService.negativeAmount(array);
+        int actual = arrayCalculationService.negativeAmount(customArray);
         int expected = 1;
         assertEquals(expected, actual);
         logger.log(Level.INFO, "negativeAmount = {}", actual);
@@ -78,11 +75,10 @@ class ArrayCalculationServiceImplTest {
 
     @Test
     void pozitiveAmount() {
-        Array array = new Array();
-        InputServiceImpl inputService = new InputServiceImpl();
-        inputService.input(array, "D:/programming/Task3_Arrays/data/array.txt");
+        ArrayReaderImpl inputService = new ArrayReaderImpl();
+        CustomArray customArray = inputService.reader("data//IncorrectArray.txt");
         ArrayCalculationServiceImpl arrayCalculationService = new ArrayCalculationServiceImpl();
-        int actual = arrayCalculationService.pozitiveAmount(array);
+        int actual = arrayCalculationService.pozitiveAmount(customArray);
         int expected = 5;
         assertEquals(expected, actual);
         logger.log(Level.INFO, "pozitiveAmount = {}", actual);
@@ -90,11 +86,10 @@ class ArrayCalculationServiceImplTest {
 
     @Test
     void minStream() {
-        Array array = new Array();
-        InputServiceImpl inputService = new InputServiceImpl();
-        inputService.input(array, "D:/programming/Task3_Arrays/data/array.txt");
+        ArrayReaderImpl inputService = new ArrayReaderImpl();
+        CustomArray customArray = inputService.reader("data//IncorrectArray.txt");
         ArrayCalculationServiceImpl arrayCalculationService = new ArrayCalculationServiceImpl();
-        OptionalInt actual = arrayCalculationService.minStream(array);
+        OptionalInt actual = arrayCalculationService.minStream(customArray);
         OptionalInt expected = OptionalInt.of(-1);
         assertEquals(expected, actual);
         logger.log(Level.INFO, "min = {}", actual);
@@ -102,11 +97,10 @@ class ArrayCalculationServiceImplTest {
 
     @Test
     void maxStream() {
-        Array array = new Array();
-        InputServiceImpl inputService = new InputServiceImpl();
-        inputService.input(array, "D:/programming/Task3_Arrays/data/array.txt");
+        ArrayReaderImpl inputService = new ArrayReaderImpl();
+        CustomArray customArray = inputService.reader("data//IncorrectArray.txt");
         ArrayCalculationServiceImpl arrayCalculationService = new ArrayCalculationServiceImpl();
-        OptionalInt actual = arrayCalculationService.maxStream(array);
+        OptionalInt actual = arrayCalculationService.maxStream(customArray);
         OptionalInt expected = OptionalInt.of(43);
         assertEquals(expected, actual);
         logger.log(Level.INFO, "max = {}", actual);
@@ -114,11 +108,10 @@ class ArrayCalculationServiceImplTest {
 
     @Test
     void averageStream() {
-        Array array = new Array();
-        InputServiceImpl inputService = new InputServiceImpl();
-        inputService.input(array, "D:/programming/Task3_Arrays/data/array.txt");
+        ArrayReaderImpl inputService = new ArrayReaderImpl();
+        CustomArray customArray = inputService.reader("data//IncorrectArray.txt");
         ArrayCalculationServiceImpl arrayCalculationService = new ArrayCalculationServiceImpl();
-        OptionalDouble actual = arrayCalculationService.averageStream(array);
+        OptionalDouble actual = arrayCalculationService.averageStream(customArray);
         OptionalDouble expected = OptionalDouble.of(12.50);
         assertEquals(expected, actual);
         logger.log(Level.INFO, "average = {}", actual);
@@ -126,11 +119,10 @@ class ArrayCalculationServiceImplTest {
 
     @Test
     void sumStream() {
-        Array array = new Array();
-        InputServiceImpl inputService = new InputServiceImpl();
-        inputService.input(array, "D:/programming/Task3_Arrays/data/array.txt");
+        ArrayReaderImpl inputService = new ArrayReaderImpl();
+        CustomArray customArray = inputService.reader("data//IncorrectArray.txt");
         ArrayCalculationServiceImpl arrayCalculationService = new ArrayCalculationServiceImpl();
-        int actual = arrayCalculationService.sumStream(array);
+        int actual = arrayCalculationService.sumStream(customArray);
         int expected = 75;
         assertEquals(expected, actual);
         logger.log(Level.INFO, "sum = {}", actual);
@@ -138,17 +130,23 @@ class ArrayCalculationServiceImplTest {
 
     @Test
     void negativeStream() {
-        Array array = new Array();
-        InputServiceImpl inputService = new InputServiceImpl();
-        inputService.input(array, "D:/programming/Task3_Arrays/data/array.txt");
+        ArrayReaderImpl inputService = new ArrayReaderImpl();
+        CustomArray customArray = inputService.reader("data//IncorrectArray.txt");
         ArrayCalculationServiceImpl arrayCalculationService = new ArrayCalculationServiceImpl();
-        int actual = arrayCalculationService.negativeStream(array);
+        int actual = arrayCalculationService.negativeStream(customArray);
         int expected = 1;
         assertEquals(expected, actual);
-        logger.log(Level.INFO, "sum = {}", actual);
+        logger.log(Level.INFO, "amount = {}", actual);
     }
 
     @Test
     void pozitiveStream() {
+        ArrayReaderImpl inputService = new ArrayReaderImpl();
+        CustomArray customArray = inputService.reader("data//CorrectArray.txt");
+        ArrayCalculationServiceImpl arrayCalculationService = new ArrayCalculationServiceImpl();
+        int actual = arrayCalculationService.pozitiveStream(customArray);
+        int expected = 5;
+        assertEquals(expected, actual);
+        logger.log(Level.INFO, "amount = {}", actual);
     }
 }

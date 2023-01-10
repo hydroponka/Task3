@@ -1,15 +1,16 @@
-package by.ageenko.task_3.sortService.impl;
+package by.ageenko.task_3.service.sort.impl;
 
-import by.ageenko.task_3.array.Array;
-import by.ageenko.task_3.sortService.SortArraysService;
+import by.ageenko.task_3.entity.CustomArray;
+import by.ageenko.task_3.service.sort.SortArraysService;
 
+import java.util.Arrays;
 
 
 public class SortArraysServiceImpl implements SortArraysService {
     @Override
-    public void bubbleSort(Array array) {
+    public void bubbleSort(CustomArray customArray) {
         boolean isSorted = false;
-        int[] array1 = array.getArray();
+        int[] array1 = customArray.getArray();
         int buff = 0;
         while (!isSorted) {
             isSorted = true;
@@ -23,12 +24,12 @@ public class SortArraysServiceImpl implements SortArraysService {
             }
 
         }
-        array.setArray(array1);
+        customArray.setArray(array1);
     }
 
     @Override
-    public void insertionSort(Array array) {
-        int[] array1 = array.getArray();
+    public void insertionSort(CustomArray customArray) {
+        int[] array1 = customArray.getArray();
         for (int i = 1; i < array1.length; i++) {
             int current = array1[i];
             int j = i - 1;
@@ -38,12 +39,12 @@ public class SortArraysServiceImpl implements SortArraysService {
             }
             array1[j + 1] = current;
         }
-        array.setArray(array1);
+        customArray.setArray(array1);
     }
 
     @Override
-    public void selectionSort(Array array) {
-        int[] array1 = array.getArray();
+    public void selectionSort(CustomArray customArray) {
+        int[] array1 = customArray.getArray();
         for (int i = 0; i < array1.length; i++) {
             int min = array1[i];
             int minId = i;
@@ -57,6 +58,12 @@ public class SortArraysServiceImpl implements SortArraysService {
             array1[i] = min;
             array1[minId] = temp;
         }
-        array.setArray(array1);
+        customArray.setArray(array1);
+    }
+
+    @Override
+    public void streamSort(CustomArray customArray) {
+        int[] array = customArray.getArray();
+        customArray.setArray(Arrays.stream(array).sorted().toArray());
     }
 }
