@@ -12,5 +12,7 @@ public class Main {
         System.out.println(array1);
         CustomArray array2 = readerArray.reader("data//EmptyArray.txt");
         System.out.println(array2);
+        CustomArray array3 = readerArray.reader("data//ArrayNull.txt");
+        System.out.println(array3);
     }
 }

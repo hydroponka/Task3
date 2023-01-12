@@ -1,24 +1,35 @@
 package by.ageenko.task_3.service.calculation.impl;
 
 import by.ageenko.task_3.entity.CustomArray;
+import by.ageenko.task_3.exception.CustomArrayException;
 import by.ageenko.task_3.service.calculation.ArrayCalculationService;
+import org.apache.logging.log4j.Level;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 
-import java.math.BigDecimal;
-import java.math.RoundingMode;
 import java.util.Arrays;
 import java.util.OptionalDouble;
 import java.util.OptionalInt;
 
 public class ArrayCalculationServiceImpl implements ArrayCalculationService {
+    static Logger logger = LogManager.getLogger();
 
     @Override
-    public int min(CustomArray customArray) {
-        int[] array1 = customArray.getArray();
-        int min = 0;
-        for (int i = 0; i < array1.length; i++) {
-            if (array1[i] < min) {
-                min = array1[i];
+    public OptionalInt min(CustomArray customArray) throws CustomArrayException {
+        int[] array = customArray.getArray();
+        OptionalInt min = OptionalInt.of(0);
+        if (array == null) {
+            throw new CustomArrayException("Array is empty");
+        } else if (array.length != 0) {
+            for (int i = 0; i < array.length; i++) {
+                if (array[i] < min.getAsInt()) {
+                    min = OptionalInt.of(array[i]);
+                }
+                return min;
             }
+        } else {
+            logger.log(Level.INFO, "Array length = 0", array);
+            return OptionalInt.empty();
         }
         return min;
     }
@@ -29,13 +40,21 @@ public class ArrayCalculationServiceImpl implements ArrayCalculationService {
     }
 
     @Override
-    public int max(CustomArray customArray) {
+    public OptionalInt max(CustomArray customArray) throws CustomArrayException {
         int[] array = customArray.getArray();
-        int max = 0;
-        for (int i = 0; i < array.length; i++) {
-            if (array[i] > max) {
-                max = array[i];
+        OptionalInt max = OptionalInt.of(0);
+        if (array == null) {
+            throw new CustomArrayException("Array is empty");
+        } else if (array.length != 0) {
+            for (int i = 0; i < array.length; i++) {
+                if (array[i] > max.getAsInt()) {
+                    max = OptionalInt.of(array[i]);
+                }
+                return max;
             }
+        } else {
+            logger.log(Level.INFO, "Array length = 0", array);
+            return OptionalInt.empty();
         }
         return max;
     }
@@ -46,16 +65,22 @@ public class ArrayCalculationServiceImpl implements ArrayCalculationService {
     }
 
     @Override
-    public double average(CustomArray customArray) {
+    public OptionalDouble average(CustomArray customArray) throws CustomArrayException {
         int[] array = customArray.getArray();
-        double average = 0;
+        OptionalDouble average;
         int sum = 0;
-        for (int i = 0; i < array.length; i++) {
-            sum += array[i];
+        if (array == null) {
+            throw new CustomArrayException("Array is empty");
+        } else if (array.length != 0) {
+            for (int i = 0; i < array.length; i++) {
+                sum += array[i];
+            }
+            average = OptionalDouble.of(sum / array.length);
+        } else {
+            logger.log(Level.INFO, "Array length = 0", array);
+            return OptionalDouble.empty();
         }
-        average = sum / array.length;
-        BigDecimal bigDecimal = new BigDecimal(average);
-        return bigDecimal.setScale(2, RoundingMode.HALF_UP).doubleValue();
+        return average;
     }
 
     @Override
@@ -64,11 +89,20 @@ public class ArrayCalculationServiceImpl implements ArrayCalculationService {
     }
 
     @Override
-    public int sum(CustomArray customArray) {
+    public OptionalInt sum(CustomArray customArray) throws CustomArrayException {
         int[] array = customArray.getArray();
-        int sum = 0;
-        for (int i = 0; i < array.length; i++) {
-            sum += array[i];
+        OptionalInt sum;
+        if (array == null) {
+            throw new CustomArrayException("Array is empty");
+        } else if (array.length != 0) {
+            int sumTemp = 0;
+            for (int i = 0; i < array.length; i++) {
+                sumTemp += array[i];
+            }
+            sum = OptionalInt.of(sumTemp);
+        } else {
+            logger.log(Level.INFO, "Array length = 0", array);
+            return OptionalInt.empty();
         }
         return sum;
     }
@@ -79,13 +113,22 @@ public class ArrayCalculationServiceImpl implements ArrayCalculationService {
     }
 
     @Override
-    public int negativeAmount(CustomArray customArray) {
+    public OptionalInt negativeAmount(CustomArray customArray) throws CustomArrayException {
         int[] array = customArray.getArray();
-        int negativeAmount = 0;
-        for (int i = 0; i < array.length; i++) {
-            if (array[i] < 0) {
-                negativeAmount++;
+        OptionalInt negativeAmount;
+        if (array == null) {
+            throw new CustomArrayException("Array is empty");}
+        else if (array.length != 0) {
+            int negativeAmountTemp = 0;
+            for (int i = 0; i < array.length; i++) {
+                if (array[i] < 0) {
+                    negativeAmountTemp++;
+                }
             }
+            negativeAmount = OptionalInt.of(negativeAmountTemp);
+        } else {
+            logger.log(Level.INFO, "Array is empty or array length = 0", array);
+            return OptionalInt.empty();
         }
         return negativeAmount;
     }
@@ -96,13 +139,22 @@ public class ArrayCalculationServiceImpl implements ArrayCalculationService {
     }
 
     @Override
-    public int pozitiveAmount(CustomArray customArray) {
+    public OptionalInt pozitiveAmount(CustomArray customArray) throws CustomArrayException {
         int[] array = customArray.getArray();
-        int pozitiveAmount = 0;
-        for (int i = 0; i < array.length; i++) {
-            if (array[i] > 0) {
-                pozitiveAmount++;
+        OptionalInt pozitiveAmount;
+        if (array == null) {
+            throw new CustomArrayException("Array is empty");}
+        else if (array.length != 0) {
+            int pozitiveAmountTemp = 0;
+            for (int i = 0; i < array.length; i++) {
+                if (array[i] > 0) {
+                    pozitiveAmountTemp++;
+                }
             }
+            pozitiveAmount = OptionalInt.of(pozitiveAmountTemp);
+        } else {
+            logger.log(Level.INFO, "Array is empty or array length = 0", array);
+            return OptionalInt.empty();
         }
         return pozitiveAmount;
     }

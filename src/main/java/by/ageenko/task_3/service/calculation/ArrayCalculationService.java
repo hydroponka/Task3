@@ -1,21 +1,22 @@
 package by.ageenko.task_3.service.calculation;
 
 import by.ageenko.task_3.entity.CustomArray;
+import by.ageenko.task_3.exception.CustomArrayException;
 
 import java.util.OptionalDouble;
 import java.util.OptionalInt;
 
 public interface ArrayCalculationService {
-    int min(CustomArray customArray);
+    OptionalInt min(CustomArray customArray) throws CustomArrayException;
     OptionalInt minStream(CustomArray customArray);
-    int max(CustomArray customArray);
+    OptionalInt max(CustomArray customArray) throws CustomArrayException;
     OptionalInt maxStream(CustomArray customArray);
-    double average(CustomArray customArray);
+    OptionalDouble average(CustomArray customArray) throws CustomArrayException;
     OptionalDouble averageStream(CustomArray customArray);
-    int sum(CustomArray customArray);
+    OptionalInt sum(CustomArray customArray) throws CustomArrayException;
     int sumStream(CustomArray customArray);
-    int negativeAmount(CustomArray customArray);
+    OptionalInt negativeAmount(CustomArray customArray) throws CustomArrayException;
     int negativeStream(CustomArray customArray);
-    int pozitiveAmount(CustomArray customArray);
+    OptionalInt pozitiveAmount(CustomArray customArray) throws CustomArrayException;
     int pozitiveStream(CustomArray customArray);
 }
