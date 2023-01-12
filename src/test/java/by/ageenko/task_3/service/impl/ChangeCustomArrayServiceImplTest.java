@@ -1,6 +1,7 @@
 package by.ageenko.task_3.service.impl;
 
 import by.ageenko.task_3.entity.CustomArray;
+import by.ageenko.task_3.service.changing.MathemeticalSign;
 import by.ageenko.task_3.service.changing.impl.ChangeArrayServiceImpl;
 import org.apache.logging.log4j.Level;
 import org.apache.logging.log4j.LogManager;
@@ -17,7 +18,7 @@ class ChangeCustomArrayServiceImplTest {
         int[] array1 = {4, 5, 6, -1, 23, 5};
         customArray.setArray(array1);
         ChangeArrayServiceImpl changeArrayService = new ChangeArrayServiceImpl();
-        int[] actual = changeArrayService.changeNegToPoz(customArray);
+        int[] actual = changeArrayService.ChangeSignOfNumber(customArray, MathemeticalSign.POZITIVE);
         int[] expected = {4, 5, 6, 1, 23, 5};
         assertArrayEquals(expected, actual);
         logger.log(Level.INFO, "changedArray = {}", actual);
@@ -29,7 +30,7 @@ class ChangeCustomArrayServiceImplTest {
         int[] array1 = {4, 5, 6, -1, 23, 5};
         customArray.setArray(array1);
         ChangeArrayServiceImpl changeArrayService = new ChangeArrayServiceImpl();
-        int[] actual = changeArrayService.changePozToNeg(customArray);
+        int[] actual = changeArrayService.ChangeSignOfNumber(customArray, MathemeticalSign.NEGATIVE);
         int[] expected = {-4, -5, -6, -1, -23, -5};
         assertArrayEquals(expected, actual);
         logger.log(Level.INFO, "changedArray = {}", actual);

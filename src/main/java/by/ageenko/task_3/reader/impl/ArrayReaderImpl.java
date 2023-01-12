@@ -14,11 +14,11 @@ import java.util.Scanner;
 
 public class ArrayReaderImpl implements ArrayReader {
     static Logger logger = LogManager.getLogger();
-    private static final String DEFAULT_FILENAME = "data//arrays.txt";
+    private static final String DEFAULT_FILENAME = "data//CorrectArrays.txt";
     @Override
     public CustomArray reader(String filename) {
         CustomArray customArray = new CustomArray();
-        int[] arr = null;
+        int[] array = null;
         Path path = Path.of(filename);
         if (!Files.exists(path)) {
             logger.log(Level.INFO, "file " + filename + " not exist");
@@ -27,23 +27,23 @@ public class ArrayReaderImpl implements ArrayReader {
         try {
             BufferedReader reader = new BufferedReader(new FileReader(filename));
             Scanner scan = new Scanner(reader);
-            String arrTemp = scan.nextLine();
-            String[] arrSplit = arrTemp.split("\\s+");
-            arr = new int[arrSplit.length];
-            for (int i = 0; i < arrSplit.length; i++) {
+            String arrayTemp = scan.nextLine();
+            String[] arraySplit = arrayTemp.split("\\s+");
+            array = new int[arraySplit.length];
+            for (int i = 0; i < arraySplit.length; i++) {
                 try {
-                    arr[i] = Integer.parseInt(arrSplit[i]);
-                } catch (Exception e) {
-                    logger.log(Level.ERROR, e);
-                    arrSplit[i] = "0";
-                    arr[i] = Integer.parseInt(arrSplit[i]);
+                    array[i] = Integer.parseInt(arraySplit[i]);
+                } catch (NumberFormatException e) {
+                    logger.log(Level.ERROR, "Number format is incorrect = {}",arraySplit[i]);
+                    arraySplit[i] = "0";
+                    array[i] = Integer.parseInt(arraySplit[i]);
                 }
             }
-            customArray.setArray(arr);
+            customArray.setArray(array);
         } catch (Exception e) {
-            logger.log(Level.ERROR, e);
-            arr = new int[]{0};
-            customArray.setArray(arr);
+            logger.log(Level.ERROR, "File is empty = {}", filename);
+            array = new int[]{0};
+            customArray.setArray(array);
         }
         return customArray;
     }

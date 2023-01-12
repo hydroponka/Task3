@@ -1,9 +1,9 @@
-package by.ageenko.task_3;
+package by.ageenko.task_3.main;
 
 import by.ageenko.task_3.entity.CustomArray;
 import by.ageenko.task_3.reader.impl.ArrayReaderImpl;
 
-public class main {
+public class Main {
     public static void main(String[] args) {
         ArrayReaderImpl readerArray = new ArrayReaderImpl();
         CustomArray array = readerArray.reader("data//IncorrectArray.txt");
