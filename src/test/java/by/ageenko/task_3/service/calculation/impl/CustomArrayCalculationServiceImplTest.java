@@ -1,4 +1,4 @@
-package by.ageenko.task_3.service.impl;
+package by.ageenko.task_3.service.calculation.impl;
 
 import by.ageenko.task_3.entity.CustomArray;
 import by.ageenko.task_3.reader.impl.ArrayReaderImpl;

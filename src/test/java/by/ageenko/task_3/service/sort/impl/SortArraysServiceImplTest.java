@@ -1,8 +1,7 @@
-package by.ageenko.task_3.sortService.impl;
+package by.ageenko.task_3.service.sort.impl;
 
 import by.ageenko.task_3.entity.CustomArray;
 import by.ageenko.task_3.reader.impl.ArrayReaderImpl;
-import by.ageenko.task_3.service.sort.impl.SortArraysServiceImpl;
 import org.apache.logging.log4j.Level;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
