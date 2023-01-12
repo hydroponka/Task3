@@ -1,6 +1,7 @@
 package by.ageenko.task_3.service.sort.impl;
 
 import by.ageenko.task_3.entity.CustomArray;
+import by.ageenko.task_3.exception.CustomArrayException;
 import by.ageenko.task_3.reader.impl.ArrayReaderImpl;
 import org.apache.logging.log4j.Level;
 import org.apache.logging.log4j.LogManager;
@@ -12,7 +13,7 @@ import static org.junit.jupiter.api.Assertions.*;
 class SortArraysServiceImplTest {
     static Logger logger = LogManager.getLogger();
     @Test
-    void bubbleSort() {
+    void bubbleSort() throws CustomArrayException {
         ArrayReaderImpl inputService = new ArrayReaderImpl();
         CustomArray customArray = inputService.reader("data//EmptyArray.txt");
         SortArraysServiceImpl sortArraysService = new SortArraysServiceImpl();
@@ -24,7 +25,7 @@ class SortArraysServiceImplTest {
     }
 
     @Test
-    void insertionSort() {
+    void insertionSort() throws CustomArrayException {
         ArrayReaderImpl inputService = new ArrayReaderImpl();
         CustomArray customArray = inputService.reader("data//IncorrectArray.txt");
         SortArraysServiceImpl sortArraysService = new SortArraysServiceImpl();
@@ -36,7 +37,7 @@ class SortArraysServiceImplTest {
     }
 
     @Test
-    void selectionSort() {
+    void selectionSort() throws CustomArrayException {
         ArrayReaderImpl inputService = new ArrayReaderImpl();
         CustomArray customArray = inputService.reader("data//CorrectArray.txt");
         SortArraysServiceImpl sortArraysService = new SortArraysServiceImpl();
@@ -48,7 +49,7 @@ class SortArraysServiceImplTest {
     }
 
     @Test
-    void streamSort(){
+    void streamSort() throws CustomArrayException {
         ArrayReaderImpl inputService = new ArrayReaderImpl();
         CustomArray customArray = inputService.reader("data//CorrectArray.txt");
         SortArraysServiceImpl sortArraysService = new SortArraysServiceImpl();

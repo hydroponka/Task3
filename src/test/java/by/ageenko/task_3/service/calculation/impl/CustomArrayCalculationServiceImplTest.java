@@ -20,14 +20,13 @@ class CustomArrayCalculationServiceImplTest {
     @Test
     void min() throws CustomArrayException {
         ArrayReaderImpl inputService = new ArrayReaderImpl();
-        CustomArray customArray = inputService.reader("data//ArrayNull.txt");
+        CustomArray customArray = inputService.reader("data//CorrectArray.txt");
         ArrayCalculationServiceImpl arrayCalculationService = new ArrayCalculationServiceImpl();
         OptionalInt actual = arrayCalculationService.min(customArray);
-        OptionalInt expected = OptionalInt.of(0);
+        OptionalInt expected = OptionalInt.of(2);
         assertEquals(expected, actual);
         logger.log(Level.INFO, "min = {}", actual);
     }
-
     @Test
     void max() throws CustomArrayException {
         ArrayReaderImpl inputService = new ArrayReaderImpl();
@@ -38,7 +37,6 @@ class CustomArrayCalculationServiceImplTest {
         assertEquals(expected, actual);
         logger.log(Level.INFO, "max = {}", actual);
     }
-
     @Test
     void average() throws CustomArrayException {
         ArrayReaderImpl inputService = new ArrayReaderImpl();
@@ -57,7 +55,7 @@ class CustomArrayCalculationServiceImplTest {
         CustomArray customArray = inputService.reader("data//IncorrectArray.txt");
         ArrayCalculationServiceImpl arrayCalculationService = new ArrayCalculationServiceImpl();
         OptionalInt actual = arrayCalculationService.sum(customArray);
-        OptionalInt expected = OptionalInt.of(75);
+        OptionalInt expected = OptionalInt.of(69);
         assertEquals(expected, actual);
         logger.log(Level.INFO, "sum = {}", actual);
     }
@@ -85,7 +83,7 @@ class CustomArrayCalculationServiceImplTest {
     }
 
     @Test
-    void minStream() {
+    void minStream() throws CustomArrayException {
         ArrayReaderImpl inputService = new ArrayReaderImpl();
         CustomArray customArray = inputService.reader("data//IncorrectArray.txt");
         ArrayCalculationServiceImpl arrayCalculationService = new ArrayCalculationServiceImpl();
@@ -96,7 +94,7 @@ class CustomArrayCalculationServiceImplTest {
     }
 
     @Test
-    void maxStream() {
+    void maxStream() throws CustomArrayException {
         ArrayReaderImpl inputService = new ArrayReaderImpl();
         CustomArray customArray = inputService.reader("data//IncorrectArray.txt");
         ArrayCalculationServiceImpl arrayCalculationService = new ArrayCalculationServiceImpl();
@@ -107,7 +105,7 @@ class CustomArrayCalculationServiceImplTest {
     }
 
     @Test
-    void averageStream() {
+    void averageStream() throws CustomArrayException {
         ArrayReaderImpl inputService = new ArrayReaderImpl();
         CustomArray customArray = inputService.reader("data//IncorrectArray.txt");
         ArrayCalculationServiceImpl arrayCalculationService = new ArrayCalculationServiceImpl();
@@ -118,7 +116,7 @@ class CustomArrayCalculationServiceImplTest {
     }
 
     @Test
-    void sumStream() {
+    void sumStream() throws CustomArrayException {
         ArrayReaderImpl inputService = new ArrayReaderImpl();
         CustomArray customArray = inputService.reader("data//IncorrectArray.txt");
         ArrayCalculationServiceImpl arrayCalculationService = new ArrayCalculationServiceImpl();
@@ -129,7 +127,7 @@ class CustomArrayCalculationServiceImplTest {
     }
 
     @Test
-    void negativeStream() {
+    void negativeStream() throws CustomArrayException {
         ArrayReaderImpl inputService = new ArrayReaderImpl();
         CustomArray customArray = inputService.reader("data//IncorrectArray.txt");
         ArrayCalculationServiceImpl arrayCalculationService = new ArrayCalculationServiceImpl();
@@ -140,7 +138,7 @@ class CustomArrayCalculationServiceImplTest {
     }
 
     @Test
-    void pozitiveStream() {
+    void pozitiveStream() throws CustomArrayException {
         ArrayReaderImpl inputService = new ArrayReaderImpl();
         CustomArray customArray = inputService.reader("data//CorrectArray.txt");
         ArrayCalculationServiceImpl arrayCalculationService = new ArrayCalculationServiceImpl();

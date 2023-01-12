@@ -20,7 +20,7 @@ public class ArrayReaderImpl implements ArrayReader {
     private static final String DEFAULT_FILENAME = "data//CorrectArrays.txt";
     private static final String SPACE_SEPARATOR = "\\s+";
     @Override
-    public CustomArray reader(String filename) {
+    public CustomArray reader(String filename) throws CustomArrayException {
         CustomArray customArray = new CustomArray();
         int[] array = {};
         Path path = Path.of(filename);
@@ -47,8 +47,8 @@ public class ArrayReaderImpl implements ArrayReader {
                 customArray.setArray(array);
             }
         } catch (IOException e) {
-            logger.log(Level.WARN, "File not found");
-            new FileNotFoundException();
+            logger.log(Level.ERROR, "File not found");
+            throw new CustomArrayException(e);
         }
         return customArray;
     }

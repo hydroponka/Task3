@@ -17,16 +17,17 @@ public class ArrayCalculationServiceImpl implements ArrayCalculationService {
     @Override
     public OptionalInt min(CustomArray customArray) throws CustomArrayException {
         int[] array = customArray.getArray();
-        OptionalInt min = OptionalInt.of(0);
+        OptionalInt min;
         if (array == null) {
             throw new CustomArrayException("Array is empty");
         } else if (array.length != 0) {
+            int minTemp = Integer.MAX_VALUE;
             for (int i = 0; i < array.length; i++) {
-                if (array[i] < min.getAsInt()) {
-                    min = OptionalInt.of(array[i]);
+                if (array[i] < minTemp) {
+                    minTemp = array[i];
                 }
-                return min;
             }
+            min = OptionalInt.of(minTemp);
         } else {
             logger.log(Level.INFO, "Array length = 0", array);
             return OptionalInt.empty();
@@ -42,16 +43,17 @@ public class ArrayCalculationServiceImpl implements ArrayCalculationService {
     @Override
     public OptionalInt max(CustomArray customArray) throws CustomArrayException {
         int[] array = customArray.getArray();
-        OptionalInt max = OptionalInt.of(0);
+        OptionalInt max;
         if (array == null) {
             throw new CustomArrayException("Array is empty");
         } else if (array.length != 0) {
+            int maxTemp = 0;
             for (int i = 0; i < array.length; i++) {
-                if (array[i] > max.getAsInt()) {
-                    max = OptionalInt.of(array[i]);
+                if (array[i] > maxTemp) {
+                    maxTemp = array[i];
                 }
-                return max;
             }
+            max = OptionalInt.of(maxTemp);
         } else {
             logger.log(Level.INFO, "Array length = 0", array);
             return OptionalInt.empty();
@@ -75,7 +77,7 @@ public class ArrayCalculationServiceImpl implements ArrayCalculationService {
             for (int i = 0; i < array.length; i++) {
                 sum += array[i];
             }
-            average = OptionalDouble.of(sum / array.length);
+            average = OptionalDouble.of((double) sum / array.length);
         } else {
             logger.log(Level.INFO, "Array length = 0", array);
             return OptionalDouble.empty();
@@ -127,7 +129,7 @@ public class ArrayCalculationServiceImpl implements ArrayCalculationService {
             }
             negativeAmount = OptionalInt.of(negativeAmountTemp);
         } else {
-            logger.log(Level.INFO, "Array is empty or array length = 0", array);
+            logger.log(Level.INFO, "Array length = 0", array);
             return OptionalInt.empty();
         }
         return negativeAmount;
@@ -153,7 +155,7 @@ public class ArrayCalculationServiceImpl implements ArrayCalculationService {
             }
             pozitiveAmount = OptionalInt.of(pozitiveAmountTemp);
         } else {
-            logger.log(Level.INFO, "Array is empty or array length = 0", array);
+            logger.log(Level.INFO, "Array length = 0", array);
             return OptionalInt.empty();
         }
         return pozitiveAmount;
