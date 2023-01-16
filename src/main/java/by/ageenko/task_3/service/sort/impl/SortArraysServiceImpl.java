@@ -20,7 +20,8 @@ public class SortArraysServiceImpl implements SortArraysService {
         int buff = 0;
         if (array == null) {
             throw new CustomArrayException("Array is empty");
-        } else if (array.length != 0) {
+        }
+        if (array.length != 0) {
             while (!isSorted) {
                 isSorted = true;
                 for (int i = 0; i < array.length - 1; i++) {
@@ -43,7 +44,8 @@ public class SortArraysServiceImpl implements SortArraysService {
         int[] array = customArray.getArray();
         if (array == null) {
             throw new CustomArrayException("Array is empty");
-        } else if (array.length != 0) {
+        }
+        if (array.length != 0) {
             for (int i = 1; i < array.length; i++) {
                 int current = array[i];
                 int j = i - 1;
@@ -64,7 +66,8 @@ public class SortArraysServiceImpl implements SortArraysService {
         int[] array = customArray.getArray();
         if (array == null) {
             throw new CustomArrayException("Array is empty");
-        } else if (array.length != 0) {
+        }
+        if (array.length != 0) {
             for (int i = 0; i < array.length; i++) {
                 int min = array[i];
                 int minId = i;

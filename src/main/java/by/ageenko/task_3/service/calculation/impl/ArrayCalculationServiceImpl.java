@@ -20,7 +20,7 @@ public class ArrayCalculationServiceImpl implements ArrayCalculationService {
         OptionalInt min;
         if (array == null) {
             throw new CustomArrayException("Array is empty");
-        } else if (array.length != 0) {
+        }if (array.length != 0) {
             int minTemp = Integer.MAX_VALUE;
             for (int i = 0; i < array.length; i++) {
                 if (array[i] < minTemp) {
@@ -46,7 +46,8 @@ public class ArrayCalculationServiceImpl implements ArrayCalculationService {
         OptionalInt max;
         if (array == null) {
             throw new CustomArrayException("Array is empty");
-        } else if (array.length != 0) {
+        }
+        if (array.length != 0) {
             int maxTemp = 0;
             for (int i = 0; i < array.length; i++) {
                 if (array[i] > maxTemp) {
@@ -73,7 +74,8 @@ public class ArrayCalculationServiceImpl implements ArrayCalculationService {
         int sum = 0;
         if (array == null) {
             throw new CustomArrayException("Array is empty");
-        } else if (array.length != 0) {
+        }
+        if (array.length != 0) {
             for (int i = 0; i < array.length; i++) {
                 sum += array[i];
             }
@@ -96,7 +98,8 @@ public class ArrayCalculationServiceImpl implements ArrayCalculationService {
         OptionalInt sum;
         if (array == null) {
             throw new CustomArrayException("Array is empty");
-        } else if (array.length != 0) {
+        }
+        if (array.length != 0) {
             int sumTemp = 0;
             for (int i = 0; i < array.length; i++) {
                 sumTemp += array[i];
@@ -119,8 +122,9 @@ public class ArrayCalculationServiceImpl implements ArrayCalculationService {
         int[] array = customArray.getArray();
         OptionalInt negativeAmount;
         if (array == null) {
-            throw new CustomArrayException("Array is empty");}
-        else if (array.length != 0) {
+            throw new CustomArrayException("Array is empty");
+        }
+        if (array.length != 0) {
             int negativeAmountTemp = 0;
             for (int i = 0; i < array.length; i++) {
                 if (array[i] < 0) {
@@ -145,8 +149,9 @@ public class ArrayCalculationServiceImpl implements ArrayCalculationService {
         int[] array = customArray.getArray();
         OptionalInt pozitiveAmount;
         if (array == null) {
-            throw new CustomArrayException("Array is empty");}
-        else if (array.length != 0) {
+            throw new CustomArrayException("Array is empty");
+        }
+        if (array.length != 0) {
             int pozitiveAmountTemp = 0;
             for (int i = 0; i < array.length; i++) {
                 if (array[i] > 0) {

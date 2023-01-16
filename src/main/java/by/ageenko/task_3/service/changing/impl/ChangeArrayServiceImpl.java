@@ -15,7 +15,8 @@ public class ChangeArrayServiceImpl implements ChangeArrayService {
         int[] array = customArray.getArray();
         if (array == null) {
             throw new CustomArrayException("Array is empty");
-        } else if (array.length != 0) {
+        }
+        if (array.length != 0) {
             if (mathemeticalSign.equals(MathemeticalSign.POZITIVE)) {
                 for (int i = 0; i < array.length; i++) {
                     if (array[i] < 0) {

@@ -41,11 +41,10 @@ public class ArrayReaderImpl implements ArrayReader {
                         logger.log(Level.ERROR, "Number format is incorrect = {}", strSplit[i]);
                     }
                 }
-                customArray.setArray(array);
             } else {
                 logger.log(Level.WARN, "File is empty = {}", filename);
-                customArray.setArray(array);
             }
+            customArray.setArray(array);
         } catch (IOException e) {
             logger.log(Level.ERROR, "File not found");
             throw new CustomArrayException(e);
