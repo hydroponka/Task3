@@ -3,17 +3,16 @@ package by.ageenko.task_3.reader.impl;
 import by.ageenko.task_3.entity.CustomArray;
 import by.ageenko.task_3.exception.CustomArrayException;
 import by.ageenko.task_3.reader.ArrayReader;
+import by.ageenko.task_3.validator.impl.StringArrayValidatorImpl;
 import org.apache.logging.log4j.Level;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
-
 import java.io.BufferedReader;
-import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
-import java.util.NoSuchElementException;
+
 
 public class ArrayReaderImpl implements ArrayReader {
     static Logger logger = LogManager.getLogger();
@@ -22,6 +21,7 @@ public class ArrayReaderImpl implements ArrayReader {
     @Override
     public CustomArray reader(String filename) throws CustomArrayException {
         CustomArray customArray = new CustomArray();
+        StringArrayValidatorImpl validator = new StringArrayValidatorImpl();
         int[] array = {};
         Path path = Path.of(filename);
         if (!Files.exists(path)) {
@@ -35,10 +35,8 @@ public class ArrayReaderImpl implements ArrayReader {
                 String[] strSplit = strTemp.split(SPACE_SEPARATOR);
                 array = new int[strSplit.length];
                 for (int i = 0; i < strSplit.length; i++) {
-                    try {
+                    if (validator.stringNumberValidate(strSplit[i])){
                         array[i] = Integer.parseInt(strSplit[i]);
-                    } catch (NumberFormatException e) {
-                        logger.log(Level.ERROR, "Number format is incorrect = {}", strSplit[i]);
                     }
                 }
             } else {
