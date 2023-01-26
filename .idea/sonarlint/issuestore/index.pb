@@ -20,5 +20,3 @@ x
 Hsrc/main/java/by/ageenko/task_3/service/changing/ChangeArrayService.java,b\d\bdce37b7939dffd9c113367007fbbf0e17b83f6c
 |
 Lsrc/main/java/by/ageenko/task_3/validator/impl/StringArrayValidatorImpl.java,a\b\ab994a99d7f4ef48f44a296e07ffede084fe37b5
-“
-csrc/test/java/by/ageenko/task_3/service/calculation/impl/CustomArrayCalculationServiceImplTest.java,b\7\b772ce4334e02b8f6d83fc6c49ab56bea6b3746d

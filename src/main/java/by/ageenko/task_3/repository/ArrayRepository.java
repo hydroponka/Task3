@@ -5,6 +5,7 @@ import by.ageenko.task_3.exception.CustomArrayException;
 import by.ageenko.task_3.reader.impl.ArrayReaderImpl;
 import by.ageenko.task_3.repository.spec.Specification;
 
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.StringJoiner;
@@ -40,7 +41,7 @@ public class ArrayRepository {
                 customArrays.remove(i);
         }
     }
-    public void addArray(String filename) throws CustomArrayException {
+    public void addArray(String filename) throws CustomArrayException, IOException {
         ArrayReaderImpl arrayReader = new ArrayReaderImpl();
         List<CustomArray> listTemp = arrayReader.readerInList(filename);
         for (CustomArray array : listTemp){
@@ -48,13 +49,14 @@ public class ArrayRepository {
         }
     }
 
-    public void updateArray(int id, String filename) throws CustomArrayException {
+    public void updateArray(int id, String filename) throws CustomArrayException, IOException {
         ArrayReaderImpl arrayReader = new ArrayReaderImpl();
         List<CustomArray> listTemp = arrayReader.readerInList(filename);
         for (int i = 0; i < customArrays.size(); i++) {
             if (customArrays.get(i).getArrayId() == id) {
                 customArrays.remove(i);
                 customArrays.add(listTemp.get(i));
+                customArrays.get(i).setArrayId(id);
             }
         }
     }

@@ -21,6 +21,11 @@ public class CustomArray {
     public int getArrayId() {
         return arrayId;
     }
+
+    public void setArrayId(int arrayId) {
+        this.arrayId = arrayId;
+    }
+
     public int[] getArray() {
         return array;
     }
