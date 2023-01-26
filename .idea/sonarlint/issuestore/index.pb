@@ -14,9 +14,5 @@ B
 data/ArrayNull.txt,5\3\5337e82457c85ec85b73e02f4a8976ba3e1f9dbb
 Å
 Qsrc/main/java/by/ageenko/task_3/service/changing/impl/ChangeArrayServiceImpl.java,d\6\d6d01c2382aa5796e0d4a16d56b0e8c190a088fd
-s
-Csrc/main/java/by/ageenko/task_3/validator/StringArrayValidator.java,3\1\31a83261d2d7b3cc8f7963bc4c959cf5250c5903
 x
 Hsrc/main/java/by/ageenko/task_3/service/changing/ChangeArrayService.java,b\d\bdce37b7939dffd9c113367007fbbf0e17b83f6c
-|
-Lsrc/main/java/by/ageenko/task_3/validator/impl/StringArrayValidatorImpl.java,a\b\ab994a99d7f4ef48f44a296e07ffede084fe37b5

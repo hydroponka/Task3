@@ -9,6 +9,7 @@ import org.apache.logging.log4j.Logger;
 import org.junit.jupiter.api.Test;
 
 
+import java.io.IOException;
 import java.util.OptionalDouble;
 import java.util.OptionalInt;
 
@@ -18,7 +19,7 @@ class CustomArrayCalculationServiceImplTest {
     static Logger logger = LogManager.getLogger();
 
     @Test
-    void min() throws CustomArrayException {
+    void min() throws CustomArrayException, IOException {
         ArrayReaderImpl inputService = new ArrayReaderImpl();
         CustomArray customArray = inputService.reader("data//CorrectArray.txt");
         ArrayCalculationServiceImpl arrayCalculationService = new ArrayCalculationServiceImpl();
@@ -28,7 +29,7 @@ class CustomArrayCalculationServiceImplTest {
         logger.log(Level.INFO, "min = {}", actual);
     }
     @Test
-    void max() throws CustomArrayException {
+    void max() throws CustomArrayException, IOException {
         ArrayReaderImpl inputService = new ArrayReaderImpl();
         CustomArray customArray = inputService.reader("data//IncorrectArray.txt");
         ArrayCalculationServiceImpl arrayCalculationService = new ArrayCalculationServiceImpl();
@@ -38,7 +39,7 @@ class CustomArrayCalculationServiceImplTest {
         logger.log(Level.INFO, "max = {}", actual);
     }
     @Test
-    void average() throws CustomArrayException {
+    void average() throws CustomArrayException, IOException {
         ArrayReaderImpl inputService = new ArrayReaderImpl();
         CustomArray customArray = inputService.reader("data//IncorrectArray.txt");
         ArrayCalculationServiceImpl arrayCalculationService = new ArrayCalculationServiceImpl();
@@ -49,7 +50,7 @@ class CustomArrayCalculationServiceImplTest {
     }
 
     @Test
-    void sum() throws CustomArrayException {
+    void sum() throws CustomArrayException, IOException {
 
         ArrayReaderImpl inputService = new ArrayReaderImpl();
         CustomArray customArray = inputService.reader("data//IncorrectArray.txt");
@@ -61,7 +62,7 @@ class CustomArrayCalculationServiceImplTest {
     }
 
     @Test
-    void negativeAmount() throws CustomArrayException {
+    void negativeAmount() throws CustomArrayException, IOException {
         ArrayReaderImpl inputService = new ArrayReaderImpl();
         CustomArray customArray = inputService.reader("data//IncorrectArray.txt");
         ArrayCalculationServiceImpl arrayCalculationService = new ArrayCalculationServiceImpl();
@@ -72,7 +73,7 @@ class CustomArrayCalculationServiceImplTest {
     }
 
     @Test
-    void pozitiveAmount() throws CustomArrayException {
+    void pozitiveAmount() throws CustomArrayException, IOException {
         ArrayReaderImpl inputService = new ArrayReaderImpl();
         CustomArray customArray = inputService.reader("data//IncorrectArray.txt");
         ArrayCalculationServiceImpl arrayCalculationService = new ArrayCalculationServiceImpl();
@@ -83,7 +84,7 @@ class CustomArrayCalculationServiceImplTest {
     }
 
     @Test
-    void minStream() throws CustomArrayException {
+    void minStream() throws CustomArrayException, IOException {
         ArrayReaderImpl inputService = new ArrayReaderImpl();
         CustomArray customArray = inputService.reader("data//IncorrectArray.txt");
         ArrayCalculationServiceImpl arrayCalculationService = new ArrayCalculationServiceImpl();
@@ -94,7 +95,7 @@ class CustomArrayCalculationServiceImplTest {
     }
 
     @Test
-    void maxStream() throws CustomArrayException {
+    void maxStream() throws CustomArrayException, IOException {
         ArrayReaderImpl inputService = new ArrayReaderImpl();
         CustomArray customArray = inputService.reader("data//IncorrectArray.txt");
         ArrayCalculationServiceImpl arrayCalculationService = new ArrayCalculationServiceImpl();
@@ -105,7 +106,7 @@ class CustomArrayCalculationServiceImplTest {
     }
 
     @Test
-    void averageStream() throws CustomArrayException {
+    void averageStream() throws CustomArrayException, IOException {
         ArrayReaderImpl inputService = new ArrayReaderImpl();
         CustomArray customArray = inputService.reader("data//IncorrectArray.txt");
         ArrayCalculationServiceImpl arrayCalculationService = new ArrayCalculationServiceImpl();
@@ -116,7 +117,7 @@ class CustomArrayCalculationServiceImplTest {
     }
 
     @Test
-    void sumStream() throws CustomArrayException {
+    void sumStream() throws CustomArrayException, IOException {
         ArrayReaderImpl inputService = new ArrayReaderImpl();
         CustomArray customArray = inputService.reader("data//IncorrectArray.txt");
         ArrayCalculationServiceImpl arrayCalculationService = new ArrayCalculationServiceImpl();
@@ -127,7 +128,7 @@ class CustomArrayCalculationServiceImplTest {
     }
 
     @Test
-    void negativeStream() throws CustomArrayException {
+    void negativeStream() throws CustomArrayException, IOException {
         ArrayReaderImpl inputService = new ArrayReaderImpl();
         CustomArray customArray = inputService.reader("data//IncorrectArray.txt");
         ArrayCalculationServiceImpl arrayCalculationService = new ArrayCalculationServiceImpl();
@@ -138,7 +139,7 @@ class CustomArrayCalculationServiceImplTest {
     }
 
     @Test
-    void pozitiveStream() throws CustomArrayException {
+    void pozitiveStream() throws CustomArrayException, IOException {
         ArrayReaderImpl inputService = new ArrayReaderImpl();
         CustomArray customArray = inputService.reader("data//CorrectArray.txt");
         ArrayCalculationServiceImpl arrayCalculationService = new ArrayCalculationServiceImpl();

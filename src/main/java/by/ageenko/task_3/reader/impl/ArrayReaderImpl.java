@@ -55,7 +55,9 @@ public class ArrayReaderImpl implements ArrayReader {
             logger.log(Level.ERROR, "File not found");
             throw new CustomArrayException(e);
         }finally {
-            reader.close();
+            if (reader != null) {
+                reader.close();
+            }
         }
         return customArray;
     }
@@ -98,7 +100,9 @@ public class ArrayReaderImpl implements ArrayReader {
             logger.log(Level.ERROR, "File not found");
             throw new CustomArrayException(e);
         }finally {
-            reader.close();
+            if (reader != null) {
+                reader.close();
+            }
         }
         return customArrayList;
     }

@@ -8,12 +8,14 @@ import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.junit.jupiter.api.Test;
 
+import java.io.IOException;
+
 import static org.junit.jupiter.api.Assertions.*;
 
 class SortArraysServiceImplTest {
     static Logger logger = LogManager.getLogger();
     @Test
-    void bubbleSort() throws CustomArrayException {
+    void bubbleSort() throws CustomArrayException, IOException {
         ArrayReaderImpl inputService = new ArrayReaderImpl();
         CustomArray customArray = inputService.reader("data//EmptyArray.txt");
         SortArraysServiceImpl sortArraysService = new SortArraysServiceImpl();
@@ -25,7 +27,7 @@ class SortArraysServiceImplTest {
     }
 
     @Test
-    void insertionSort() throws CustomArrayException {
+    void insertionSort() throws CustomArrayException, IOException {
         ArrayReaderImpl inputService = new ArrayReaderImpl();
         CustomArray customArray = inputService.reader("data//IncorrectArray.txt");
         SortArraysServiceImpl sortArraysService = new SortArraysServiceImpl();
@@ -37,7 +39,7 @@ class SortArraysServiceImplTest {
     }
 
     @Test
-    void selectionSort() throws CustomArrayException {
+    void selectionSort() throws CustomArrayException, IOException {
         ArrayReaderImpl inputService = new ArrayReaderImpl();
         CustomArray customArray = inputService.reader("data//CorrectArray.txt");
         SortArraysServiceImpl sortArraysService = new SortArraysServiceImpl();
@@ -49,7 +51,7 @@ class SortArraysServiceImplTest {
     }
 
     @Test
-    void streamSort() throws CustomArrayException {
+    void streamSort() throws CustomArrayException, IOException {
         ArrayReaderImpl inputService = new ArrayReaderImpl();
         CustomArray customArray = inputService.reader("data//CorrectArray.txt");
         SortArraysServiceImpl sortArraysService = new SortArraysServiceImpl();
