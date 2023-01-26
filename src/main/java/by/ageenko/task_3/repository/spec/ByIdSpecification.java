@@ -2,11 +2,11 @@ package by.ageenko.task_3.repository.spec;
 
 import by.ageenko.task_3.entity.CustomArray;
 
-public class IdSpecificationById implements Specification {
+public class ByIdSpecification implements Specification {
     private int id;
     private ComparisonSign comparisonSign;
 
-    public IdSpecificationById(int id, ComparisonSign comparisonSign) {
+    public ByIdSpecification(int id, ComparisonSign comparisonSign) {
         this.id = id;
         this.comparisonSign = comparisonSign;
     }

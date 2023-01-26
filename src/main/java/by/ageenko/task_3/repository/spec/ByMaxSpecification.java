@@ -5,11 +5,11 @@ import by.ageenko.task_3.service.calculation.impl.ArrayCalculationServiceImpl;
 
 import java.util.OptionalInt;
 
-public class IdSpecificationByMax implements Specification {
+public class ByMaxSpecification implements Specification {
     private OptionalInt maxValue;
     private ComparisonSign comparisonSign;
 
-    public IdSpecificationByMax(OptionalInt maxValue, ComparisonSign comparisonSign) {
+    public ByMaxSpecification(OptionalInt maxValue, ComparisonSign comparisonSign) {
         this.maxValue = maxValue;
         this.comparisonSign = comparisonSign;
     }

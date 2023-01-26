@@ -5,11 +5,11 @@ import by.ageenko.task_3.service.calculation.impl.ArrayCalculationServiceImpl;
 
 import java.util.OptionalDouble;
 
-public class IdSpecificationByAverage implements Specification {
+public class ByAverageSpecification implements Specification {
     private OptionalDouble averageValue;
     private ComparisonSign comparisonSign;
 
-    public IdSpecificationByAverage(OptionalDouble averageValue, ComparisonSign comparisonSign) {
+    public ByAverageSpecification(OptionalDouble averageValue, ComparisonSign comparisonSign) {
         this.averageValue = averageValue;
         this.comparisonSign = comparisonSign;
     }

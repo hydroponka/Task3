@@ -5,11 +5,11 @@ import by.ageenko.task_3.service.calculation.impl.ArrayCalculationServiceImpl;
 
 import java.util.OptionalInt;
 
-public class IdSpecificationByMin implements Specification {
+public class ByMinSpecification implements Specification {
     private OptionalInt minValue;
     private ComparisonSign comparisonSign;
 
-    public IdSpecificationByMin(OptionalInt minValue, ComparisonSign comparisonSign) {
+    public ByMinSpecification(OptionalInt minValue, ComparisonSign comparisonSign) {
         this.minValue = minValue;
         this.comparisonSign = comparisonSign;
     }

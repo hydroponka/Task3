@@ -2,10 +2,10 @@ package by.ageenko.task_3.repository.spec;
 
 import by.ageenko.task_3.entity.CustomArray;
 
-public class IdSpecificationByCount implements Specification{
+public class ByCountSpecification implements Specification{
     private int memberCount;
 
-    public IdSpecificationByCount(int memberCount) {
+    public ByCountSpecification(int memberCount) {
         this.memberCount = memberCount;
     }
 
