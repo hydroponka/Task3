@@ -24,5 +24,3 @@ j
 Lsrc/main/java/by/ageenko/task_3/validator/impl/StringArrayValidatorImpl.java,a\b\ab994a99d7f4ef48f44a296e07ffede084fe37b5
 “
 csrc/test/java/by/ageenko/task_3/service/calculation/impl/CustomArrayCalculationServiceImplTest.java,b\7\b772ce4334e02b8f6d83fc6c49ab56bea6b3746d
-€
-Psrc/main/java/by/ageenko/task_3/service/calculation/ArrayCalculationService.java,c\b\cb9c715c9507d22b09caab5ba7c9fcb7de6eae7e
