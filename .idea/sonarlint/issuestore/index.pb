@@ -18,8 +18,6 @@ s
 Csrc/main/java/by/ageenko/task_3/validator/StringArrayValidator.java,3\1\31a83261d2d7b3cc8f7963bc4c959cf5250c5903
 x
 Hsrc/main/java/by/ageenko/task_3/service/changing/ChangeArrayService.java,b\d\bdce37b7939dffd9c113367007fbbf0e17b83f6c
-j
-:src/main/java/by/ageenko/task_3/generator/IdGenerator.java,2\5\25233c70a55fa97c2a697383d02296c24f19770c
 |
 Lsrc/main/java/by/ageenko/task_3/validator/impl/StringArrayValidatorImpl.java,a\b\ab994a99d7f4ef48f44a296e07ffede084fe37b5
 “

@@ -48,6 +48,17 @@ public class ArrayRepository {
         }
     }
 
+    public void updateArray(int id, String filename) throws CustomArrayException {
+        ArrayReaderImpl arrayReader = new ArrayReaderImpl();
+        List<CustomArray> listTemp = arrayReader.readerInList(filename);
+        for (int i = 0; i < customArrays.size(); i++) {
+            if (customArrays.get(i).getArrayId() == id) {
+                customArrays.remove(i);
+                customArrays.add(listTemp.get(i));
+            }
+        }
+    }
+
     @Override
     public String toString() {
         return new StringJoiner(", ", ArrayRepository.class.getSimpleName() + "[", "]")
