@@ -12,6 +12,9 @@ import java.io.FileReader;
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
 
 
 public class ArrayReaderImpl implements ArrayReader {
@@ -22,6 +25,7 @@ public class ArrayReaderImpl implements ArrayReader {
     public CustomArray reader(String filename) throws CustomArrayException {
         CustomArray customArray = new CustomArray();
         StringArrayValidatorImpl validator = new StringArrayValidatorImpl();
+        int[] arrayTemp;
         int[] array = {};
         Path path = Path.of(filename);
         if (!Files.exists(path)) {
@@ -33,12 +37,15 @@ public class ArrayReaderImpl implements ArrayReader {
             String strTemp = reader.readLine();
             if (strTemp != null){
                 String[] strSplit = strTemp.split(SPACE_SEPARATOR);
-                array = new int[strSplit.length];
+                arrayTemp = new int[strSplit.length];
+                int counter = 0;
                 for (int i = 0; i < strSplit.length; i++) {
                     if (validator.stringNumberValidate(strSplit[i])){
-                        array[i] = Integer.parseInt(strSplit[i]);
+                        arrayTemp[counter] = Integer.parseInt(strSplit[i]);
+                        counter++;
                     }
                 }
+                array = Arrays.copyOfRange(arrayTemp, 0, counter);
             } else {
                 logger.log(Level.WARN, "File is empty = {}", filename);
             }
@@ -48,6 +55,46 @@ public class ArrayReaderImpl implements ArrayReader {
             throw new CustomArrayException(e);
         }
         return customArray;
+    }
+
+    @Override
+    public List<CustomArray> readerInList(String filename) throws CustomArrayException {
+        List<CustomArray> customArrayList = new ArrayList<>();
+        StringArrayValidatorImpl validator = new StringArrayValidatorImpl();
+        int[] arrayTemp;
+        int[] array;
+        Path path = Path.of(filename);
+        if (!Files.exists(path)) {
+            logger.log(Level.INFO, "file {} not exist", filename);
+            filename = DEFAULT_FILENAME;
+        }
+        try {
+            BufferedReader reader = new BufferedReader(new FileReader(filename));
+            String strTemp = reader.readLine();
+            if (strTemp == null) {
+                customArrayList.add(new CustomArray());
+                logger.log(Level.WARN, "File is empty = {}", filename); //or throw new CustomArrayException("File is empty")?
+            } else {
+                while (strTemp != null) {
+                    String[] strSplit = strTemp.split(SPACE_SEPARATOR);
+                    arrayTemp = new int[strSplit.length];
+                    int counter = 0;
+                    for (int i = 0; i < strSplit.length; i++) {
+                        if (validator.stringNumberValidate(strSplit[i])) {
+                            arrayTemp[counter] = Integer.parseInt(strSplit[i]);
+                            counter++;
+                        }
+                    }
+                    array = Arrays.copyOfRange(arrayTemp, 0, counter);
+                    customArrayList.add(new CustomArray(array));
+                    strTemp = reader.readLine();
+                }
+            }
+        } catch (IOException e) {
+            logger.log(Level.ERROR, "File not found");
+            throw new CustomArrayException(e);
+        }
+        return customArrayList;
     }
 }
 

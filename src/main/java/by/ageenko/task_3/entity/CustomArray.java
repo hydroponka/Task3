@@ -7,9 +7,14 @@ import java.util.StringJoiner;
 
 public class CustomArray {
     private int arrayId;
-    private int [] array;
+    private int[] array;
 
     public CustomArray() {
+        this.arrayId = IdGenerator.generateIdOfArray();
+    }
+
+    public CustomArray(int[] array) {
+        this.array = array;
         this.arrayId = IdGenerator.generateIdOfArray();
     }
 
