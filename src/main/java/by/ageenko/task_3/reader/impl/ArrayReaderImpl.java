@@ -22,7 +22,7 @@ public class ArrayReaderImpl implements ArrayReader {
     private static final String DEFAULT_FILENAME = "data//CorrectArrays.txt";
     private static final String SPACE_SEPARATOR = "\\s+";
     @Override
-    public CustomArray reader(String filename) throws CustomArrayException {
+    public CustomArray reader(String filename) throws CustomArrayException, IOException {
         CustomArray customArray = new CustomArray();
         StringArrayValidatorImpl validator = new StringArrayValidatorImpl();
         int[] arrayTemp;
@@ -32,8 +32,9 @@ public class ArrayReaderImpl implements ArrayReader {
             logger.log(Level.INFO, "file {} not exist", filename);
             filename = DEFAULT_FILENAME;
         }
+        BufferedReader reader = null;
         try {
-            BufferedReader reader = new BufferedReader(new FileReader(filename));
+            reader = new BufferedReader(new FileReader(filename));
             String strTemp = reader.readLine();
             if (strTemp != null){
                 String[] strSplit = strTemp.split(SPACE_SEPARATOR);
@@ -53,12 +54,14 @@ public class ArrayReaderImpl implements ArrayReader {
         } catch (IOException e) {
             logger.log(Level.ERROR, "File not found");
             throw new CustomArrayException(e);
+        }finally {
+            reader.close();
         }
         return customArray;
     }
 
     @Override
-    public List<CustomArray> readerInList(String filename) throws CustomArrayException {
+    public List<CustomArray> readerInList(String filename) throws CustomArrayException, IOException {
         List<CustomArray> customArrayList = new ArrayList<>();
         StringArrayValidatorImpl validator = new StringArrayValidatorImpl();
         int[] arrayTemp;
@@ -68,8 +71,9 @@ public class ArrayReaderImpl implements ArrayReader {
             logger.log(Level.INFO, "file {} not exist", filename);
             filename = DEFAULT_FILENAME;
         }
+        BufferedReader reader = null;
         try {
-            BufferedReader reader = new BufferedReader(new FileReader(filename));
+            reader = new BufferedReader(new FileReader(filename));
             String strTemp = reader.readLine();
             if (strTemp == null) {
                 customArrayList.add(new CustomArray());
@@ -93,6 +97,8 @@ public class ArrayReaderImpl implements ArrayReader {
         } catch (IOException e) {
             logger.log(Level.ERROR, "File not found");
             throw new CustomArrayException(e);
+        }finally {
+            reader.close();
         }
         return customArrayList;
     }
