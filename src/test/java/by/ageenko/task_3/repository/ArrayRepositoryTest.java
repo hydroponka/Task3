@@ -21,7 +21,7 @@ static Logger logger = LogManager.getLogger();
         ArrayReaderImpl reader = new ArrayReaderImpl();
         List<CustomArray> customArrayList = reader.readerInList("data//IncorrectArray.txt");
         ArrayRepository arrayRepository = new ArrayRepository(customArrayList);
-        IdSpecificationById idSpecificationById = new IdSpecificationById(2);
+        IdSpecificationById idSpecificationById = new IdSpecificationById(2, ComparisonSign.LARGER);
         logger.log(Level.INFO,arrayRepository.query(idSpecificationById));
         IdSpecificationByRange idSpecificationByRange = new IdSpecificationByRange(1,2);
         logger.log(Level.INFO,arrayRepository.query(idSpecificationByRange));
