@@ -1,6 +1,6 @@
 package by.ageenko.task_3.entity;
 
-import by.ageenko.task_3.generator.IdGenerator;
+import by.ageenko.task_3.util.IdGenerator;
 
 import java.util.Arrays;
 import java.util.StringJoiner;
