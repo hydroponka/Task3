@@ -7,9 +7,9 @@ import java.util.OptionalInt;
 
 public class IdSpecificationByMax implements Specification {
     private OptionalInt maxValue;
-    private СomparisonSign comparisonSign;
+    private ComparisonSign comparisonSign;
 
-    public IdSpecificationByMax(OptionalInt maxValue, СomparisonSign comparisonSign) {
+    public IdSpecificationByMax(OptionalInt maxValue, ComparisonSign comparisonSign) {
         this.maxValue = maxValue;
         this.comparisonSign = comparisonSign;
     }

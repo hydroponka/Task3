@@ -42,8 +42,8 @@ public class ArrayRepository {
     }
     public void addArray(String filename) throws CustomArrayException {
         ArrayReaderImpl arrayReader = new ArrayReaderImpl();
-        List<CustomArray> results = arrayReader.readerInList(filename);
-        for (CustomArray array : results){
+        List<CustomArray> listTemp = arrayReader.readerInList(filename);
+        for (CustomArray array : listTemp){
             customArrays.add(array);
         }
     }

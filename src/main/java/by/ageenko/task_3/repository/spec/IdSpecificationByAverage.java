@@ -7,9 +7,9 @@ import java.util.OptionalDouble;
 
 public class IdSpecificationByAverage implements Specification {
     private OptionalDouble averageValue;
-    private СomparisonSign comparisonSign;
+    private ComparisonSign comparisonSign;
 
-    public IdSpecificationByAverage(OptionalDouble averageValue, СomparisonSign comparisonSign) {
+    public IdSpecificationByAverage(OptionalDouble averageValue, ComparisonSign comparisonSign) {
         this.averageValue = averageValue;
         this.comparisonSign = comparisonSign;
     }

@@ -3,14 +3,13 @@ package by.ageenko.task_3.repository.spec;
 import by.ageenko.task_3.entity.CustomArray;
 import by.ageenko.task_3.service.calculation.impl.ArrayCalculationServiceImpl;
 
-import java.util.OptionalDouble;
 import java.util.OptionalInt;
 
 public class IdSpecificationByMin implements Specification {
     private OptionalInt minValue;
-    private СomparisonSign comparisonSign;
+    private ComparisonSign comparisonSign;
 
-    public IdSpecificationByMin(OptionalInt minValue, СomparisonSign comparisonSign) {
+    public IdSpecificationByMin(OptionalInt minValue, ComparisonSign comparisonSign) {
         this.minValue = minValue;
         this.comparisonSign = comparisonSign;
     }

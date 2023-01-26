@@ -1,14 +1,13 @@
 package by.ageenko.task_3.repository.spec;
 
 import by.ageenko.task_3.entity.CustomArray;
-import by.ageenko.task_3.repository.WareHouse;
 import by.ageenko.task_3.service.calculation.impl.ArrayCalculationServiceImpl;
 
 public class IdSpecificationBySum implements Specification{
     private int sumValue;
-    private СomparisonSign comparisonSign;
+    private ComparisonSign comparisonSign;
 
-    public IdSpecificationBySum(int sumValue, СomparisonSign comparisonSign) {
+    public IdSpecificationBySum(int sumValue, ComparisonSign comparisonSign) {
         this.sumValue = sumValue;
         this.comparisonSign = comparisonSign;
     }
