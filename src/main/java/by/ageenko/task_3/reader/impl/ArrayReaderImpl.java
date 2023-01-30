@@ -7,9 +7,8 @@ import by.ageenko.task_3.validator.impl.StringArrayValidatorImpl;
 import org.apache.logging.log4j.Level;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
-import java.io.BufferedReader;
-import java.io.FileReader;
-import java.io.IOException;
+
+import java.io.*;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.util.ArrayList;
@@ -32,16 +31,14 @@ public class ArrayReaderImpl implements ArrayReader {
             logger.log(Level.INFO, "file {} not exist", filename);
             filename = DEFAULT_FILENAME;
         }
-        BufferedReader reader = null;
-        try {
-            reader = new BufferedReader(new FileReader(filename));
+        try (BufferedReader reader = new BufferedReader(new FileReader(filename))) {
             String strTemp = reader.readLine();
-            if (strTemp != null){
+            if (strTemp != null) {
                 String[] strSplit = strTemp.split(SPACE_SEPARATOR);
                 arrayTemp = new int[strSplit.length];
                 int counter = 0;
                 for (int i = 0; i < strSplit.length; i++) {
-                    if (validator.stringNumberValidate(strSplit[i])){
+                    if (validator.stringNumberValidate(strSplit[i])) {
                         arrayTemp[counter] = Integer.parseInt(strSplit[i]);
                         counter++;
                     }
@@ -54,10 +51,6 @@ public class ArrayReaderImpl implements ArrayReader {
         } catch (IOException e) {
             logger.log(Level.ERROR, "File not found");
             throw new CustomArrayException(e);
-        }finally {
-            if (reader != null) {
-                reader.close();
-            }
         }
         return customArray;
     }
@@ -73,9 +66,7 @@ public class ArrayReaderImpl implements ArrayReader {
             logger.log(Level.INFO, "file {} not exist", filename);
             filename = DEFAULT_FILENAME;
         }
-        BufferedReader reader = null;
-        try {
-            reader = new BufferedReader(new FileReader(filename));
+        try (BufferedReader reader = new BufferedReader(new FileReader(filename))) {
             String strTemp = reader.readLine();
             if (strTemp == null) {
                 customArrayList.add(new CustomArray());
@@ -99,10 +90,6 @@ public class ArrayReaderImpl implements ArrayReader {
         } catch (IOException e) {
             logger.log(Level.ERROR, "File not found");
             throw new CustomArrayException(e);
-        }finally {
-            if (reader != null) {
-                reader.close();
-            }
         }
         return customArrayList;
     }

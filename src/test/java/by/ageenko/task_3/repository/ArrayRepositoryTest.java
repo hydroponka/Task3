@@ -45,7 +45,7 @@ static Logger logger = LogManager.getLogger();
         ArrayRepository arrayRepository = new ArrayRepository(customArrayList);
         logger.log(Level.INFO,arrayRepository);
         CustomArray customArray = reader.reader("data//CorrectArray.txt");
-        arrayRepository.updateArray(1,customArray);
+        arrayRepository.updateArray(2,customArray);
         logger.log(Level.INFO,arrayRepository);
     }
 

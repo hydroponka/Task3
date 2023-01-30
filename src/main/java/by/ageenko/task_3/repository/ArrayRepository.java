@@ -57,12 +57,12 @@ public class ArrayRepository {
         Warehouse.getInstance().calculateSummaryStatistics(customArrays);
     }
 
-    public List<CustomArray> sort(Comparator comparator) {
+    public List<CustomArray> sort(Comparator<CustomArray> comparator) {
         Collections.sort(customArrays, comparator);
         return customArrays;
     }
 
-    public List<CustomArray> reversSort(Comparator comparator) {
+    public List<CustomArray> reversSort(Comparator<CustomArray> comparator) {
         Collections.sort(customArrays, comparator.reversed());
         return customArrays;
     }

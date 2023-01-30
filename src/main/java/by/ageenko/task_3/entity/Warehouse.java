@@ -3,22 +3,25 @@ package by.ageenko.task_3.entity;
 import java.util.*;
 
 public class Warehouse {
-    private static final Warehouse INSTANCE = new Warehouse();
-    private Map<Integer, IntSummaryStatistics> map = new HashMap<>();
+    private static final Warehouse instance = new Warehouse();
+    private Map<Integer, ArrayStatistics> map = new HashMap<>();
 
     private Warehouse() {
     }
 
     public static Warehouse getInstance() {
-        return INSTANCE;
+        return instance;
     }
-    public void calculateSummaryStatistics(List<CustomArray> customArrays){
-        map.clear();
-        for (CustomArray array : customArrays){
-            map.put(array.getArrayId(), Arrays.stream(array.getArray()).summaryStatistics());
-        }
+
+    public ArrayStatistics put(Integer key, ArrayStatistics value) {
+        return map.put(key, value);
     }
-    public String getSummaryStatistics(){
-        return map.toString();
+
+    public ArrayStatistics remove(Object key) {
+        return map.remove(key);
+    }
+
+    public ArrayStatistics replace(Integer key, ArrayStatistics value) {
+        return map.replace(key, value);
     }
 }
