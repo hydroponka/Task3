@@ -16,19 +16,17 @@ public class CustomArray {
         this.arrayId = IdGenerator.generateIdOfArray();
         observer = new ArrayStatisticsObserverImpl();
     }
+    public CustomArray(int[] array) {
+        this.array = array;
+        this.arrayId = IdGenerator.generateIdOfArray();
+        observer = new ArrayStatisticsObserverImpl();
+    }
     public void removeObserver(){
         observer = null;
     }
     public void addObserver(){
         observer = new ArrayStatisticsObserverImpl();
     }
-
-    public CustomArray(int[] array) {
-        this.array = array;
-        this.arrayId = IdGenerator.generateIdOfArray();
-        observer = new ArrayStatisticsObserverImpl();
-    }
-
     public int getArrayId() {
         return arrayId;
     }
