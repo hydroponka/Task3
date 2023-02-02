@@ -46,10 +46,6 @@ public class CustomArray {
         notifyObserver();
     }
 
-    public ArrayStatisticsObserver getObserver() {
-        return observer;
-    }
-
     public void setElement(int index, int value) throws CustomArrayException {
         array[index] = value;
         notifyObserver();
