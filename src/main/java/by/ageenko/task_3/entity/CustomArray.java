@@ -45,10 +45,16 @@ public class CustomArray {
         this.array = array;
         notifyObserver();
     }
+
+    public ArrayStatisticsObserver getObserver() {
+        return observer;
+    }
+
     public void setElement(int index, int value) throws CustomArrayException {
         array[index] = value;
         notifyObserver();
     }
+
     private void notifyObserver() throws CustomArrayException {
         if (observer!=null){
             observer.changeArrayElement(this);

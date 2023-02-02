@@ -22,6 +22,7 @@ public class Main {
         CustomArray customArray2 = new CustomArray(new int[]{5,6,74,3,6});
         CustomArray customArray3 = new CustomArray(new int[]{5,6,74,3,6});
         CustomArray customArray4 = new CustomArray(new int[]{5,6,74,3,6});
+        customArray1.getObserver().changeArrayElement(customArray1);
         customArray1.setElement(0,1);
         List<CustomArray> customArrayList2 = List.of(customArray1,customArray2);
         List<CustomArray> customArrayList3 = List.of(customArray3,customArray4);
