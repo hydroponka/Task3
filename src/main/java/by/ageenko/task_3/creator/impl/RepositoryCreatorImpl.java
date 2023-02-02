@@ -10,8 +10,7 @@ import java.util.List;
 public class RepositoryCreatorImpl implements RepositoryCreator {
     @Override
     public ArrayRepository createFromListObject(List<CustomArray> customArrays) {
-        ArrayRepository arrayRepository = new ArrayRepository(customArrays);
-        return arrayRepository;
+        return new ArrayRepository(customArrays);
     }
 
     @Override
@@ -20,7 +19,6 @@ public class RepositoryCreatorImpl implements RepositoryCreator {
         for (int[] i : arrays){
             customArrayList.add(new CustomArray(i));
         }
-        ArrayRepository arrayRepository = new ArrayRepository(customArrayList);
-        return arrayRepository;
+        return new ArrayRepository(customArrayList);
     }
 }

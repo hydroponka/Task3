@@ -21,6 +21,7 @@ public class Main {
     public static void main(String[] args) throws CustomArrayException, IOException {
         CustomArray customArray1 = new CustomArray(new int[]{5, 6, 74, 3, 6});
         CustomArray customArray2 = new CustomArray(new int[]{5, 6, 74, 3, 6});
+        CustomArray customArray3 = new CustomArray(new int[]{5, 6, 74, 3, 6});
         List<CustomArray> customArrayList = List.of(customArray1, customArray2);
         WarehouseCreator warehouseCreator = new WarehouseCreatorImpl();
         System.out.println(warehouseCreator.statisticCreatorFromListObject(customArrayList));
