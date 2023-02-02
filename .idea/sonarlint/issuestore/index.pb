@@ -70,8 +70,6 @@ p
 @src/main/java/by/ageenko/task_3/reader/impl/ArrayReaderImpl.java,3\4\3470b601ec0afbfdc4ef48e0b8967aefaca67ef8
 s
 Csrc/test/java/by/ageenko/task_3/repository/ArrayRepositoryTest.java,d\4\d448b6dba913a952f32029ffdf6dc5ba3f7bc910
-k
-;src/main/java/by/ageenko/task_3/entity/ArrayStatistics.java,9\9\996d552a1206186bd2a3d92a45ccbaca38c08c58
 u
 Esrc/main/java/by/ageenko/task_3/observer/ArrayStatisticsObserver.java,0\2\02df34d4fa74225921576f48b4f693212c7564df
 z

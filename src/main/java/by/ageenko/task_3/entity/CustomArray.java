@@ -12,12 +12,15 @@ public class CustomArray {
     private int arrayId;
     private int[] array;
     private ArrayStatisticsObserver observer;
+
     {
         observer = new ArrayStatisticsObserverImpl();
         this.arrayId = IdGenerator.generateIdOfArray();
     }
+
     public CustomArray() {
     }
+
     public CustomArray(int[] array) {
         this.array = array;
     }
