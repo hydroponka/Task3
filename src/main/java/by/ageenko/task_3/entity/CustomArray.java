@@ -9,18 +9,19 @@ import java.util.Arrays;
 import java.util.StringJoiner;
 
 public class CustomArray {
+    private int arrayId;
+    private int[] array;
+    ArrayStatisticsObserver observer;
     {
         observer = new ArrayStatisticsObserverImpl();
         this.arrayId = IdGenerator.generateIdOfArray();
     }
-    private int arrayId;
-    private int[] array;
-    ArrayStatisticsObserver observer;
     public CustomArray() {
     }
     public CustomArray(int[] array) {
         this.array = array;
     }
+
     public void removeObserver(){
         observer = null;
     }
