@@ -11,7 +11,6 @@ public class ArrayRepository {
 
     public ArrayRepository(List<CustomArray> customArrays) {
         this.customArrays = customArrays;
-        Warehouse.getInstance().calculateSummaryStatistics(customArrays);
     }
 
     public List<CustomArray> getCustomArrays() {
@@ -20,7 +19,6 @@ public class ArrayRepository {
 
     public void setCustomArrays(List<CustomArray> customArrays) {
         this.customArrays = customArrays;
-        Warehouse.getInstance().calculateSummaryStatistics(customArrays);
     }
 
     public List<CustomArray> query(Specification specification) {
@@ -38,12 +36,10 @@ public class ArrayRepository {
             if (customArrays.get(i).getArrayId() == id)
                 customArrays.remove(i);
         }
-        Warehouse.getInstance().calculateSummaryStatistics(customArrays);
     }
 
     public void addArray(CustomArray customArray) {
         customArrays.add(customArray);
-        Warehouse.getInstance().calculateSummaryStatistics(customArrays);
     }
 
     public void updateArray(int id, CustomArray customArray) {
@@ -54,7 +50,6 @@ public class ArrayRepository {
                 customArray.setArrayId(id);
             }
         }
-        Warehouse.getInstance().calculateSummaryStatistics(customArrays);
     }
 
     public List<CustomArray> sort(Comparator<CustomArray> comparator) {

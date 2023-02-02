@@ -24,4 +24,11 @@ public class Warehouse {
     public ArrayStatistics replace(Integer key, ArrayStatistics value) {
         return map.replace(key, value);
     }
+
+    @Override
+    public String toString() {
+        return new StringJoiner(", ", Warehouse.class.getSimpleName() + "[", "]")
+                .add("map=" + map)
+                .toString();
+    }
 }
