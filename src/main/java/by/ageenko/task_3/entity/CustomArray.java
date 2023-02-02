@@ -11,7 +11,7 @@ import java.util.StringJoiner;
 public class CustomArray {
     private int arrayId;
     private int[] array;
-    ArrayStatisticsObserver observer;
+    private ArrayStatisticsObserver observer;
     {
         observer = new ArrayStatisticsObserverImpl();
         this.arrayId = IdGenerator.generateIdOfArray();
